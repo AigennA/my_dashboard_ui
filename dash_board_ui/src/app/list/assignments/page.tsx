@@ -2,10 +2,7 @@ import FormModal from "@/components/FormModal";
 import Pagination from "@/components/Pagination";
 import Table from "@/components/Table";
 import TableSearch from "@/components/TableSearch";
-import {
-  assignmentsData,
-  role,
-} from "@/lib/data";
+import { assignmentsData, role } from "@/lib/data";
 import Image from "next/image";
 
 type Assignment = {
@@ -19,7 +16,7 @@ type Assignment = {
 const columns = [
   {
     header: "Subject Name",
-    accessor: "name",
+    accessor: "subject",
   },
   {
     header: "Class",
@@ -74,13 +71,23 @@ const AssignmentListPage = () => {
         <div className="flex flex-col md:flex-row items-center gap-4 w-full md:w-auto">
           <TableSearch />
           <div className="flex items-center gap-4 self-end">
-            <button className="w-8 h-8 flex items-center justify-center rounded-full bg-lamaYellow">
-              <Image src="/filter.png" alt="" width={14} height={14} />
+            <button
+              className="w-8 h-8 flex items-center justify-center rounded-full bg-lamaYellow"
+              aria-label="Filter Assignments"
+              tabIndex={0}
+            >
+              <Image src="/filter.png" alt="Filter" width={14} height={14} />
             </button>
-            <button className="w-8 h-8 flex items-center justify-center rounded-full bg-lamaYellow">
-              <Image src="/sort.png" alt="" width={14} height={14} />
+            <button
+              className="w-8 h-8 flex items-center justify-center rounded-full bg-lamaYellow"
+              aria-label="Sort Assignments"
+              tabIndex={0}
+            >
+              <Image src="/sort.png" alt="Sort" width={14} height={14} />
             </button>
-            {role === "admin" || role === "teacher" && <FormModal table="assignment" type="create" />}
+            {role === "admin" || role === "teacher" && (
+              <FormModal table="assignment" type="create" />
+            )}
           </div>
         </div>
       </div>

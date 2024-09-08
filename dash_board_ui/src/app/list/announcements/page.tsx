@@ -64,12 +64,18 @@ const AnnouncementListPage = () => {
         <div className="flex flex-col md:flex-row items-center gap-4 w-full md:w-auto">
           <TableSearch />
           <div className="flex items-center gap-4 self-end">
-            <button className="w-8 h-8 flex items-center justify-center rounded-full bg-lamaYellow">
-              <Image src="/filter.png" alt="" width={14} height={14} />
-            </button>
-            <button className="w-8 h-8 flex items-center justify-center rounded-full bg-lamaYellow">
-              <Image src="/sort.png" alt="" width={14} height={14} />
-            </button>
+          <button type="submit" className="w-8 h-8 flex items-center justify-center rounded-full bg-lamaYellow" aria-label="Filter Announcements">
+  <Image src="/filter.png" alt="Filter" width={14} height={14} />
+</button>
+<button className="w-8 h-8 flex items-center justify-center rounded-full bg-lamaYellow" aria-label="Sort Announcements">
+  <Image src="/sort.png" alt="Sort" width={14} height={14} />
+</button>
+
+       
+       
+       
+       
+       
             {role === "admin" && (
               <FormModal table="announcement" type="create" />
             )}
